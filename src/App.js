@@ -36,62 +36,7 @@ function App() {
        <input></input>
        
      </ContainerFiltro>
-     <ContainerProdutos>
-       <NavProdutos>
-        <p>Quantidade de produtos:8</p>
-        <p>dropdown de preços</p>
-       </NavProdutos>
-       <FlexProdutos>
-         <Produto>
-           <ImagemProduto src="https://i.pinimg.com/736x/de/d8/34/ded834163abe2ba47a380c72f155c2da.jpg" />
-           <p>Item</p>
-           <p>Preço</p>
-           <button></button>
-         </Produto>
-         <Produto>
-           <ImagemProduto src="https://i.pinimg.com/736x/de/d8/34/ded834163abe2ba47a380c72f155c2da.jpg" />
-           <p>Item</p>
-           <p>Preço</p>
-           <button></button>
-         </Produto>
-         <Produto>
-           <ImagemProduto src="https://i.pinimg.com/736x/de/d8/34/ded834163abe2ba47a380c72f155c2da.jpg" />
-           <p>Item</p>
-           <p>Preço</p>
-           <button></button>
-         </Produto>
-         <Produto>
-           <ImagemProduto src="https://i.pinimg.com/736x/de/d8/34/ded834163abe2ba47a380c72f155c2da.jpg" />
-           <p>Item</p>
-           <p>Preço</p>
-           <button></button>
-         </Produto>
-         <Produto>
-           <ImagemProduto src="https://i.pinimg.com/736x/de/d8/34/ded834163abe2ba47a380c72f155c2da.jpg" />
-           <p>Item</p>
-           <p>Preço</p>
-           <button></button>
-         </Produto>
-         <Produto>
-           <ImagemProduto src="https://i.pinimg.com/736x/de/d8/34/ded834163abe2ba47a380c72f155c2da.jpg" />
-           <p>Item</p>
-           <p>Preço</p>
-           <button></button>
-         </Produto>
-         <Produto>
-           <ImagemProduto src="https://i.pinimg.com/736x/de/d8/34/ded834163abe2ba47a380c72f155c2da.jpg" />
-           <p>Item</p>
-           <p>Preço</p>
-           <button></button>
-         </Produto>
-         <Produto>
-           <ImagemProduto src="https://i.pinimg.com/736x/de/d8/34/ded834163abe2ba47a380c72f155c2da.jpg" />
-           <p>Item</p>
-           <p>Preço</p>
-           <button></button>
-         </Produto>
-       </FlexProdutos>
-     </ContainerProdutos>
+     <Home />
      <ContainerCarrinho>
        <h3>Carrinho</h3>
        <p>Total: R$0</p>
