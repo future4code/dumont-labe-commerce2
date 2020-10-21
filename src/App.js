@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import styled from "styled-components"
+import {Home} from "../src/components/Home"
 
 const ContainerSite = styled.div`
 display:flex;
@@ -20,38 +21,7 @@ border: 1px solid black;
 height:100vh;
 width:20%;`
 
-const ContainerProdutos = styled.div`
-display:flex;
-flex-direction:column;
-border: 1px solid black;
-height:80%;
-width:50%;`
 
-const NavProdutos = styled.div`
-display:flex;
-justify-content:space-between;
-border: 1px solid black;
-height:10%;
-width:100%;`
-
-const FlexProdutos = styled.div`
-display:flex;
-flex-wrap:wrap;
-border: 1px solid black;
-height:90%;
-width:100%;`
-
-const Produto = styled.div`
-display:flex;
-flex-direction:column;
-border: 1px solid black;
-height:50%;
-width:20%;`
-
-const ImagemProduto = styled.img`
-height:30%;
-width:100%;
-`
 
 function App() {
   return (
