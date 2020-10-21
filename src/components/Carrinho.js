@@ -1,6 +1,13 @@
 import React from "react";
+import styled from "styled-components"
 
-class Carrinho extends React.Component {
+const ContainerCarrinho = styled.div`
+display:flex;
+flex-direction:column;
+border: 1px solid black;
+height:100vh;
+width:20%;`
+export class Carrinho extends React.Component {
     state = {
         itensNoCarrinho: []
     }
@@ -9,11 +16,10 @@ class Carrinho extends React.Component {
         
 
         return(
-            <div>
-                <h1>Carrinho:</h1>
-
-                <p>Total:</p>
-            </div>
+            <ContainerCarrinho>
+            <h3>Carrinho</h3>
+            <p>Total: R$0</p>
+          </ContainerCarrinho>
         )
     }
 }
