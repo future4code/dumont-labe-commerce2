@@ -7,7 +7,7 @@ display:flex;
 flex-direction:column;
 border: 1px solid black;
 height:80%;
-width:50%;`
+width:60%;`
 
 const NavHome = styled.div`
   display:flex;
@@ -17,12 +17,11 @@ const NavHome = styled.div`
   height:10%;
   width:100%;
 `
-const FlexProdutos = styled.div`
-display:flex;
-flex-wrap:wrap;
-border: 1px solid black;
-height:90%;
-width:100%;`
+const GridProdutos = styled.div`
+display:grid;
+grid-template-columns: 1fr 1fr 1fr;
+width:100%;
+justify-items:center;`
 
 export class Home extends React.Component {
   render(){
@@ -38,11 +37,11 @@ export class Home extends React.Component {
                       </select>
                   </label>
               </NavHome>
-              <FlexProdutos>
+              <GridProdutos>
                   {this.props.produtos.map((produto) => {
                       return <Produto produto={produto}/>
                   })}
-              </FlexProdutos>
+              </GridProdutos>
           </ContainerHome>
       )
   }

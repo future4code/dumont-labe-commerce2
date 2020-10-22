@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {ItemDoCarrinho} from '../../components/carrinho/ItemDoCarrinho'
 
 const ContainerDosProdutos = styled.div`
     border: 1px solid black;
@@ -26,6 +27,9 @@ const InformacaoDoProduto = styled.div`
 `
 
 export class Produto extends React.Component {
+    adicionaProdutoCarrinho = () => {
+        
+    }
     render() {
         const produto = this.props.produto
         return (

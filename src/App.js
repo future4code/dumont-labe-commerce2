@@ -66,6 +66,9 @@ class App extends React.Component {
     filtroMin: "",
     filtroMax: "",
     nomeFiltro: "",
+    carrinhoDeCompras: [
+      
+    ]
   }
 
   render(){
