@@ -17,11 +17,19 @@ export class Filtro extends React.Component{
     <ContainerFiltro>
        <h1>Filtro</h1>
        <label>Valor Minimo</label>
-       <input></input>
+       <input 
+        type="number" 
+        value={this.props.filtroMin} 
+       />
        <label>Valor Máximo</label>
-       <input></input>
+       <input 
+        typer="number" 
+        value={this.props.filtroMax}
+        />
        <label>Buscar Produto</label>
-       <input></input>
+       <input 
+           value={this.props.filtroNome}
+       />
        
      </ContainerFiltro>
         )
