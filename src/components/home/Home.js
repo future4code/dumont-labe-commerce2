@@ -24,7 +24,17 @@ width:100%;
 justify-items:center;`
 
 export class Home extends React.Component {
+
+    filtraProdutoLista = () =>{
+        return this.props.produtos
+            .filter((produto) => produto.preco < this.props.filtroMax)
+            .filter((produto) => produto.preco > this.props.filtroMin)
+            //.filter((produto) => produto.nome.includes(this.props.filtroNome))
+            
+    }
+
   render(){
+      const filtroProdutoEordenarLista = this.filtraProdutoLista()
       return (
           <ContainerHome>
               <NavHome>
@@ -38,7 +48,7 @@ export class Home extends React.Component {
                   </label>
               </NavHome>
               <GridProdutos>
-                  {this.props.produtos.map((produto) => {
+                  {filtroProdutoEordenarLista.map((produto) => {
                       return <Produto produto={produto}/>
                   })}
               </GridProdutos>

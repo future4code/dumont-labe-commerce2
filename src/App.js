@@ -20,7 +20,7 @@ const produtos = [
   {
     id: 2,
 	  nome: "Falcon Heavy",
-	  preco: 503208000,
+	  preco: 503,
 	  urlDaImagem: "https://super.abril.com.br/wp-content/uploads/2018/02/spacex-falconheavy.png",
   },
   {
@@ -65,10 +65,8 @@ class App extends React.Component {
   state = {
     filtroMin: "",
     filtroMax: "",
-    nomeFiltro: "",
-    carrinhoDeCompras: [
-      
-    ]
+    filtroNome: ""
+    
   }
 
   render(){
@@ -77,9 +75,14 @@ class App extends React.Component {
       <Filtro 
         filtroMin={this.state.filtroMin}
         filtroMax={this.state.filtroMax}
-        filtroNome={this.state.nomeFiltro}
+        filtroNome={this.state.filtroNome}
       />
-      <Home produtos={produtos}/>
+      <Home 
+        produtos={produtos}
+        filtroMin={this.state.filtroMin}
+        filtroMax={this.state.filtroMax}
+        filtroNome={this.state.filtroNome}
+      />
       <Carrinho />
     </ContainerSite>
     );
