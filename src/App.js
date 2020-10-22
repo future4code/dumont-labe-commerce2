@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import styled from "styled-components"
 import {Home} from "../src/components/Home"
-import {Carrinho} from "../src/components/Carrinho"
+import {Carrinho} from "./components/carrinho/Carrinho"
 import Filtro from './components/filtro/Filtro';
 
 
