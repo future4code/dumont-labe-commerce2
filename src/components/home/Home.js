@@ -3,11 +3,12 @@ import {Produto} from "./Produto";
 import styled from "styled-components"
 
 const ContainerHome = styled.div`
-display:flex;
-flex-direction:column;
-border: 1px solid black;
-height:80%;
-width:60%;`
+  display:flex;
+  flex-direction:column;
+  border: 1px solid black;
+  height:80%;
+  width:60%;
+`
 
 const NavHome = styled.div`
   display:flex;
@@ -17,11 +18,13 @@ const NavHome = styled.div`
   height:10%;
   width:100%;
 `
+
 const GridProdutos = styled.div`
-display:grid;
-grid-template-columns: 1fr 1fr 1fr;
-width:100%;
-justify-items:center;`
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width:100%;
+  justify-items:center;
+`
 
 export class Home extends React.Component {
   state = {
@@ -30,11 +33,15 @@ export class Home extends React.Component {
 
   filtrarEOrdenar = () => {
     return (this.props.produtos
-      .filter((produtos) => produtos.preco < this.props.filtroMax)
-      .filter((produtos) => produtos.preco > this.props.filtroMin)
-      // .filter((produtos) => produtos.nome.includes(this.props.nomeFiltro))
-      // .sort((a, b) => this.state.sort === 'crescente' ? a.preco - b.preco : b.preco - a.preco)
+      .filter((produtos) => {return (produtos.preco < this.props.filtroMax)})
+      .filter((produtos) => {return (produtos.preco > this.props.filtroMin)})
+      .filter((produtos) => {return produtos.nome.includes(this.props.filtroNome)})
+      .sort((a, b) => {return this.state.sort === 'crescente' ? a.preco - b.preco : b.preco - a.preco})
     )
+  }
+
+  onChangeOrdenar = (event) => {
+    this.setState({ordem: event.target.value})
   }
 
   render(){
@@ -45,7 +52,7 @@ export class Home extends React.Component {
           <p>Quantidade de produtos: {listaFiltradaEOrdenada.length}</p>
           <label>
             Ordenar por:
-            <select value={this.state.ordem}>
+            <select value={this.state.ordem} onChange={this.onChangeOrdenar}>
               <option value={'crescente'}>Preço crescente</option>
               <option value={'decrescente'}>Preço decrescente</option>
             </select>
