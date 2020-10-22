@@ -13,11 +13,20 @@ const Botao = styled.button`
 `
 
 export class ItemDoCarrinho extends React.Component {
+    state = {
+        carrinhoDeCompras: [
+            {
+            nome:"teste",
+            preco:"teste"
+        }
+        ]
+    }
     render() {
         return(
             <ContainerDoItem>
-                <p>1x</p>
-                <p>X-wing</p>
+                {this.state.carrinhoDeCompras.map((produto) => {
+                      return <p>{produto.nome},{produto.preco}</p>
+                  })}
                 <Botao>Remover</Botao>
             </ContainerDoItem>
         )

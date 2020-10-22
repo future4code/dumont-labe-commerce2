@@ -10,12 +10,13 @@ const ContainerDoCarrinho = styled.div`
 `
 
 const ContainerDaListaDeItens = styled.div`
-    padding: 10px
+    padding: 10px;
 `
 
 export class Carrinho extends React.Component {
+  
     somaDosValoresNoCarrinho = () => {
-        let valorTotal = 4758347583
+        let valorTotal = 0
 
         return valorTotal
     }
