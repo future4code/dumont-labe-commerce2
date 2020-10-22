@@ -24,6 +24,7 @@ width:100%;
 justify-items:center;`
 
 export class Home extends React.Component {
+    
   render(){
       return (
           <ContainerHome>

@@ -1,34 +1,37 @@
 import React from "react";
 import styled from 'styled-components';
 
-const ContainerDoItem = styled.div`
+const ContainerDosItems = styled.div`
     display: flex;
+    flex-direction:column;
     justify-content: space-evenly;
     align-items: center;
     border-bottom: 1px dashed black;
 `
+const Item = styled.div`
+display:flex;`
 const Botao = styled.button`
     padding: 0;
     height: 25px;
 `
 
 export class ItemDoCarrinho extends React.Component {
-    state = {
-        carrinhoDeCompras: [
-            {
-            nome:"teste",
-            preco:"teste"
-        }
-        ]
+
+    removeProduto = (produto) => {
+        {this.props.carrinho.map((produtoCarrinho) => {
+            if (produto ===  produtoCarrinho.id){
+                console.log("REMOVE")
+            }
+        })}
     }
     render() {
         return(
-            <ContainerDoItem>
-                {this.state.carrinhoDeCompras.map((produto) => {
-                      return <p>{produto.nome},{produto.preco}</p>
+            <ContainerDosItems>
+                {this.props.carrinho.map((produto) => {
+                      return <Item><p>{produto.nome},{produto.preco}</p><Botao onClick={()=>this.removeProduto(produto.id)}>Remover</Botao></Item>
                   })}
-                <Botao>Remover</Botao>
-            </ContainerDoItem>
+                
+            </ContainerDosItems>
         )
     }
 }
