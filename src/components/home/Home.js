@@ -24,25 +24,39 @@ width:100%;
 justify-items:center;`
 
 export class Home extends React.Component {
+  state = {
+    ordem: 'crescente'
+  }
+
+  filtrarEOrdenar = () => {
+    return (this.props.produtos
+      .filter((produtos) => produtos.preco < this.props.filtroMax)
+      .filter((produtos) => produtos.preco > this.props.filtroMin)
+      // .filter((produtos) => produtos.nome.includes(this.props.nomeFiltro))
+      // .sort((a, b) => this.state.sort === 'crescente' ? a.preco - b.preco : b.preco - a.preco)
+    )
+  }
+
   render(){
-      return (
-          <ContainerHome>
-              <NavHome>
-                  <p>Quantidade de produtos:8</p>
-                  <label>
-                      Ordenar por:
-                      <select>
-                          <option>Crescente</option>
-                          <option>Decrescente</option>
-                      </select>
-                  </label>
-              </NavHome>
-              <GridProdutos>
-                  {this.props.produtos.map((produto) => {
-                      return <Produto produto={produto}/>
-                  })}
-              </GridProdutos>
-          </ContainerHome>
+    const listaFiltradaEOrdenada = this.filtrarEOrdenar()
+    return (
+      <ContainerHome>
+        <NavHome>
+          <p>Quantidade de produtos: {listaFiltradaEOrdenada.length}</p>
+          <label>
+            Ordenar por:
+            <select value={this.state.ordem}>
+              <option value={'crescente'}>Preço crescente</option>
+              <option value={'decrescente'}>Preço decrescente</option>
+            </select>
+          </label>
+        </NavHome>
+        <GridProdutos>
+          {listaFiltradaEOrdenada.map((produto) => {
+            return <Produto produto={produto}/>
+          })}
+        </GridProdutos>
+      </ContainerHome>
       )
   }
 }
