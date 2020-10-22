@@ -11,24 +11,30 @@ display:flex;
 justify-content:space-between;
 margin:10px;`
 
-const ContainerFiltro = styled.div`
-display:flex;
-flex-direction:column;
-border: 1px solid black;
-height:100vh;
-width:20%;`
+
+class App extends React.Component {
+
+  state = {
+    
+    filtroMin: "",
+    filtroMax: "",
+    nomeFiltro: ""
+  }
 
 
-
-
-function App() {
-  return (
-   <ContainerSite>
-     <Filtro />
-     <Home />
-     <Carrinho />
-   </ContainerSite>
-  );
+  render(){
+    return (
+    <ContainerSite>
+      <Filtro 
+        filtroMin={this.state.filtroMin}
+        filtroMax={this.state.filtroMax}
+        filtroNome={this.state.nomeFiltro}
+      />
+      <Home />
+      <Carrinho />
+    </ContainerSite>
+    );
+}
 }
   
 
