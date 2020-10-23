@@ -31,7 +31,7 @@ export class ItemDoCarrinho extends React.Component {
                       <Item>
                         <FlexInformacoesItem>
                             <ImagemCarrinho src={produto.urlDaImagem}/>
-                            <h4>{produto.nome}:R${produto.preco}</h4>
+                            <h4>{produto.quantidade}:{produto.nome}:R${produto.preco}</h4>
                         </FlexInformacoesItem>
                         <Botao onClick={()=>this.props.removeCarrinho(produto)}>
                             Remover

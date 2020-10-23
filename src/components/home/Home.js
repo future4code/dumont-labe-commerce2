@@ -24,6 +24,8 @@ width:100%;
 justify-items:center;`
 
 export class Home extends React.Component {
+
+filtraProdutos = () = =>{
     
   render(){
       return (
@@ -40,7 +42,12 @@ export class Home extends React.Component {
               </NavHome>
               <GridProdutos>
                   {this.props.produtos.map((produto) => {
-                      return <Produto produto={produto} carrinho={this.props.carrinho} adicionaCarrinho={this.props.adicionaCarrinho} valorCompra={this.props.valorCompra} somaValorCompra={this.props.somaValorCompra}/>
+                      return <Produto produto={produto} 
+                      carrinho={this.props.carrinho} 
+                      adicionaProdutoCarrinho ={this.props.adicionaProdutoCarrinho}
+                      valorCompra={this.props.valorCompra} 
+                      somaValorCompra={this.props.somaValorCompra}
+                      />
                   })}
               </GridProdutos>
           </ContainerHome>
