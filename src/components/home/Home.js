@@ -40,7 +40,7 @@ export class Home extends React.Component {
               </NavHome>
               <GridProdutos>
                   {this.props.produtos.map((produto) => {
-                      return <Produto produto={produto}/>
+                      return <Produto produto={produto} carrinho={this.props.carrinho} adicionaCarrinho={this.props.adicionaCarrinho} valorCompra={this.props.valorCompra} somaValorCompra={this.props.somaValorCompra}/>
                   })}
               </GridProdutos>
           </ContainerHome>

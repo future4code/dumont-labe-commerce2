@@ -27,13 +27,16 @@ const InformacaoDoProduto = styled.div`
 `
 
 export class Produto extends React.Component {
-    adicionaProdutoCarrinho = (idNovo,nomeNovo,precoNovo) => {
-        let carrinhoDeComprasNovo = [...ItemDoCarrinho.state.carrinhoDeCompras]
-        carrinhoDeComprasNovo.push({id:idNovo,nome:nomeNovo,preco:precoNovo})
-        ItemDoCarrinho.setState({
-            carrinhoDeCompras:carrinhoDeComprasNovo
-        }) 
-        console.log(this.state.carrinhoDeComprasNovo)
+    state = {
+        
+    }
+    adicionaProdutoCarrinho = (idNovo,nomeNovo,precoNovo,urlDaImagemNovo) => {
+        
+       
+       const novoCarrinho = [...this.props.carrinho, ({id:idNovo,nome:nomeNovo,preco:precoNovo,urlDaImagem:urlDaImagemNovo})]
+       this.props.adicionaCarrinho(novoCarrinho)
+       this.props.somaValorCompra(precoNovo)
+        console.log(novoCarrinho)
      }
  
     render() {
@@ -44,7 +47,7 @@ export class Produto extends React.Component {
                 <InformacaoDoProduto>
                     <p>{produto.nome}</p>
                     <p>R$ {produto.preco}</p>
-                    <button onClick={()=>this.adicionaProdutoCarrinho(Date.now(),produto.nome,produto.preco)}>Adicionar ao carrinho</button>
+                    <button onClick={()=>this.adicionaProdutoCarrinho(Date.now(),produto.nome,produto.preco,produto.urlDaImagem)}>Adicionar ao carrinho</button>
                 </InformacaoDoProduto>
             </ContainerDosProdutos>
         )
