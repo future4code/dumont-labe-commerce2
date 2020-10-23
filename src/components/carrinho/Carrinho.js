@@ -4,31 +4,24 @@ import styled from 'styled-components';
 
 const ContainerDoCarrinho = styled.div`
     border: 1px solid black;
-    height: 80vh;
+    height: 200vh;
     width: 20%;
     padding: 10px;
 `
-
 const ContainerDaListaDeItens = styled.div`
     padding: 10px;
 `
-
 export class Carrinho extends React.Component {
-  
-    somaDosValoresNoCarrinho = () => {
-        let valorTotal = 0
-
-        return valorTotal
-    }
-
     render() {
         return(
             <ContainerDoCarrinho>
                 <h1>Carrinho</h1>
                 <ContainerDaListaDeItens>
-                    <ItemDoCarrinho />
+                    <ItemDoCarrinho 
+                        carrinho={this.props.carrinho} 
+                        removeCarrinho={this.props.removeCarrinho}/>
                 </ContainerDaListaDeItens>
-                <p>Total: R${this.somaDosValoresNoCarrinho()},00</p>
+                <p>Total: R${this.props.valorCompra},00</p>
             </ContainerDoCarrinho>
         )
     }

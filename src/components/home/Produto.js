@@ -27,9 +27,11 @@ const InformacaoDoProduto = styled.div`
 `
 
 export class Produto extends React.Component {
-    adicionaProdutoCarrinho = () => {
+    state = {
         
     }
+   
+ 
     render() {
         const produto = this.props.produto
         return (
@@ -38,7 +40,7 @@ export class Produto extends React.Component {
                 <InformacaoDoProduto>
                     <p>{produto.nome}</p>
                     <p>R$ {produto.preco}</p>
-                    <button>Adicionar ao carrinho</button>
+                    <button onClick={()=>this.props.adicionaProdutoCarrinho(produto.id,produto.nome,produto.preco,produto.urlDaImagem)}>Adicionar ao carrinho</button>
                 </InformacaoDoProduto>
             </ContainerDosProdutos>
         )

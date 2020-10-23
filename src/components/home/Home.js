@@ -27,7 +27,8 @@ const GridProdutos = styled.div`
 `
 
 export class Home extends React.Component {
-  state = {
+
+state = {
     ordem: 'crescente'
   }
 
@@ -39,31 +40,43 @@ export class Home extends React.Component {
       .sort((a, b) => {return this.state.sort === 'crescente' ? a.preco - b.preco : b.preco - a.preco})
     )
   }
-
   onChangeOrdenar = (event) => {
     this.setState({ordem: event.target.value})
   }
-
+    
   render(){
     const listaFiltradaEOrdenada = this.filtrarEOrdenar()
-    return (
-      <ContainerHome>
-        <NavHome>
-          <p>Quantidade de produtos: {listaFiltradaEOrdenada.length}</p>
-          <label>
-            Ordenar por:
-            <select value={this.state.ordem} onChange={this.onChangeOrdenar}>
-              <option value={'crescente'}>Preço crescente</option>
-              <option value={'decrescente'}>Preço decrescente</option>
-            </select>
-          </label>
-        </NavHome>
-        <GridProdutos>
-          {listaFiltradaEOrdenada.map((produto) => {
-            return <Produto produto={produto}/>
-          })}
-        </GridProdutos>
-      </ContainerHome>
+      return (
+          <ContainerHome>
+              <NavHome>
+                  <p>Quantidade de produtos: {listaFiltradaEOrdenada.length}</p>
+                  <label>
+                      Ordenar por:
+                      <select value={this.state.ordem} onChange={this.onChangeOrdenar}>
+                      <option value={'crescente'}>Preço crescente</option>
+                      <option value={'decrescente'}>Preço decrescente</option>
+                      </select>
+                  </label>
+              </NavHome>
+              <GridProdutos>
+                  {this.props.produtos.map((produto) => {
+                      return <Produto produto={produto} 
+                      carrinho={this.props.carrinho} 
+                      adicionaProdutoCarrinho ={this.props.adicionaProdutoCarrinho}
+                      valorCompra={this.props.valorCompra} 
+                      somaValorCompra={this.props.somaValorCompra}
+                      />
+                  })}
+              </GridProdutos>
+          </ContainerHome>
+    
+// //   <GridProdutos>
+//           {listaFiltradaEOrdenada.map((produto) => {
+//             return <Produto produto={produto}/>
+//           })}
+//         </GridProdutos>
+
+
       )
   }
 }

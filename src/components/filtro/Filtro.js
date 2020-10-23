@@ -30,7 +30,6 @@ export class Filtro extends React.Component{
        <input 
            value={this.props.filtroNome}
        />
-       
      </ContainerFiltro>
         )
     }
