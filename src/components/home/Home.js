@@ -3,11 +3,12 @@ import {Produto} from "./Produto";
 import styled from "styled-components"
 
 const ContainerHome = styled.div`
-display:flex;
-flex-direction:column;
-border: 1px solid black;
-height:80%;
-width:60%;`
+  display:flex;
+  flex-direction:column;
+  border: 1px solid black;
+  height:80%;
+  width:60%;
+`
 
 const NavHome = styled.div`
   display:flex;
@@ -17,26 +18,43 @@ const NavHome = styled.div`
   height:10%;
   width:100%;
 `
+
 const GridProdutos = styled.div`
-display:grid;
-grid-template-columns: 1fr 1fr 1fr;
-width:100%;
-justify-items:center;`
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width:100%;
+  justify-items:center;
+`
 
 export class Home extends React.Component {
 
-filtraProdutos = () = =>{
+state = {
+    ordem: 'crescente'
+  }
+
+  filtrarEOrdenar = () => {
+    return (this.props.produtos
+      .filter((produtos) => {return (produtos.preco < this.props.filtroMax)})
+      .filter((produtos) => {return (produtos.preco > this.props.filtroMin)})
+      .filter((produtos) => {return produtos.nome.includes(this.props.filtroNome)})
+      .sort((a, b) => {return this.state.sort === 'crescente' ? a.preco - b.preco : b.preco - a.preco})
+    )
+  }
+  onChangeOrdenar = (event) => {
+    this.setState({ordem: event.target.value})
+  }
     
   render(){
+    const listaFiltradaEOrdenada = this.filtrarEOrdenar()
       return (
           <ContainerHome>
               <NavHome>
-                  <p>Quantidade de produtos:8</p>
+                  <p>Quantidade de produtos: {listaFiltradaEOrdenada.length}</p>
                   <label>
                       Ordenar por:
-                      <select>
-                          <option>Crescente</option>
-                          <option>Decrescente</option>
+                      <select value={this.state.ordem} onChange={this.onChangeOrdenar}>
+                      <option value={'crescente'}>Preço crescente</option>
+                      <option value={'decrescente'}>Preço decrescente</option>
                       </select>
                   </label>
               </NavHome>
@@ -51,6 +69,14 @@ filtraProdutos = () = =>{
                   })}
               </GridProdutos>
           </ContainerHome>
+    
+// //   <GridProdutos>
+//           {listaFiltradaEOrdenada.map((produto) => {
+//             return <Produto produto={produto}/>
+//           })}
+//         </GridProdutos>
+
+
       )
   }
 }

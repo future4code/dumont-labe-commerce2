@@ -74,9 +74,9 @@ const novoProduto= [...produtos]
 
 class App extends React.Component { 
   state = {
-    filtroMin: "",
-    filtroMax: "",
-    nomeFiltro: "",
+    filtroMin: 0,
+    filtroMax: 87018364543534500000,
+    filtroNome: "",
     carrinhoDeCompras: [
       // produtos que aparecem na tela principal
     
@@ -124,7 +124,7 @@ class App extends React.Component {
       <Filtro 
         filtroMin={this.state.filtroMin}
         filtroMax={this.state.filtroMax}
-        filtroNome={this.state.nomeFiltro}
+        filtroNome={this.state.filtroNome}
       />
       <Home 
         produtos={produtos} 
