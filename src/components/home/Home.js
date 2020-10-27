@@ -36,8 +36,8 @@ state = {
     return (this.props.produtos
       .filter((produtos) => {return (produtos.preco < this.props.filtroMax)})
       .filter((produtos) => {return (produtos.preco > this.props.filtroMin)})
-      .filter((produtos) => {return produtos.nome.includes(this.props.filtroNome)})
-      .sort((a, b) => {return this.state.sort === 'crescente' ? a.preco - b.preco : b.preco - a.preco})
+      .filter((produtos) => {return (produtos.nome.includes(this.props.filtroNome))})
+      .sort((a, b) => {return this.state.ordem === 'crescente' ? a.preco - b.preco : b.preco - a.preco})
     )
   }
   onChangeOrdenar = (event) => {
@@ -59,7 +59,7 @@ state = {
                   </label>
               </NavHome>
               <GridProdutos>
-                  {this.props.produtos.map((produto) => {
+                  {listaFiltradaEOrdenada.map((produto) => {
                       return <Produto produto={produto} 
                       carrinho={this.props.carrinho} 
                       adicionaProdutoCarrinho ={this.props.adicionaProdutoCarrinho}
@@ -70,11 +70,8 @@ state = {
               </GridProdutos>
           </ContainerHome>
     
-// //   <GridProdutos>
-//           {listaFiltradaEOrdenada.map((produto) => {
-//             return <Produto produto={produto}/>
-//           })}
-//         </GridProdutos>
+
+          
 
 
       )

@@ -74,8 +74,8 @@ const novoProduto= [...produtos]
 
 class App extends React.Component { 
   state = {
-    filtroMin: 0,
-    filtroMax: 87018364543534500000,
+    filtroMin: 40,
+    filtroMax: 100,
     filtroNome: "",
     carrinhoDeCompras: [
       // produtos que aparecem na tela principal
@@ -118,6 +118,24 @@ class App extends React.Component {
     
   })
 }
+  onChangeFiltroMin = (event) => {
+    const filtroMin = event.target.value
+    this.setState({
+      filtroMin:filtroMin
+    })
+  }
+  onChangeFiltroMax = (event) => {
+    const filtroMax = event.target.value
+    this.setState({
+      filtroMax:filtroMax
+    })
+  }
+  onChangeFiltroNome = (event) => {
+    const filtroNome = event.target.value
+    this.setState({
+      filtroNome:filtroNome
+    })
+  }
   render(){
     return (
     <ContainerSite>
@@ -125,6 +143,9 @@ class App extends React.Component {
         filtroMin={this.state.filtroMin}
         filtroMax={this.state.filtroMax}
         filtroNome={this.state.filtroNome}
+        onChangeFiltroMax={this.onChangeFiltroMax}
+        onChangeFiltroMin={this.onChangeFiltroMin}
+        onChangeFiltroNome={this.onChangeFiltroNome}
       />
       <Home 
         produtos={produtos} 
@@ -135,7 +156,7 @@ class App extends React.Component {
         somaValorCompra={this.somaValorCompra}
         filtroMin={this.state.filtroMin}
         filtroMax={this.state.filtroMax}
-        filtroNome={this.state.nomeFiltro}
+        filtroNome={this.state.filtroNome}
         />
       <Carrinho 
         produtos={produtos} 
